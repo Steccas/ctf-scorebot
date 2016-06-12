@@ -1,5 +1,32 @@
+BIG WARNING!!!
+This scorebot has been modified to generate shorter flags than the one I've
+forked from:
+  https://github.com/RootFu/ctf-scorebot
+
+It has only been tested on the mafia2007 image available at
+  http://ictf.cs.ucsb.edu/ictfdata/2007/vms/mafia2007.tar.gz
+
+Note that the following modification to the mafia2007 image is required for the
+amends service to be detected properly:
+ 1) Login as "amends" (password: "amends")
+ 2) Open /home/amends/php-include/filter.php
+ 3) Go the the filter_ccnum function (near the end of file)
+ 4) Replace the following line
+        preg_match('/^[A-Za-z0-9=/\+]{1,40}$/', $ccnum)) {
+    with
+        preg_match('/^[A-Za-z0-9=_\-]{1,40}$/', $ccnum)) {
+
+---------------------------------------------------------------
+
 To start a simple CTF game, run:
 
-python StandardCTF.py -i -c <config_file>
+python2 StandardCTF.py -i -c <config_file>
 
 The -i argument initializes a new game. Foregoing the -i will cause the game to attempt to restore from the previous game.
+
+It does work with Mafia2016;
+I made some adjustments to make it work in Fedora Server 23
+
+use python /var/www/html/ctf-scorebot-master/StandardCTF.py -i -c /var/www/html/ctf-scorebot-master/config/ctfvshard.ini
+
+and remember to open port 9090 (or any you're using) with iptables -I INPUT -p tcp --dport 9090 --syn -j ACCEPT

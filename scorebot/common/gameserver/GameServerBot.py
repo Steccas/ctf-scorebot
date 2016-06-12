@@ -1,26 +1,4 @@
-import asyncore
-
-from multiprocessing import Process
-
-from scorebot.common.communication.BotMessage import BotMessage
-from scorebot.common.communication.BotCommServer import BotCommServer
-from scorebot.common.models.GameStateServerInfo import GameStateServerInfo
-
-class GameServerBot(Process):
-
-	def __init__(self, conf, gamelogic):
-		Process.__init__(self)
-		self.conf = conf
-		self.gamelogic = gamelogic
-		self.server = None
-
-	def run(self):
-		try:
-			info = self.conf.getGameStateServerInfo()
-			self.server = BotCommServer(info.port,info.key,info.iv,self.gamelogic)
-			asyncore.loop()
-		except KeyboardInterrupt:
-			print "GameStateBot caught keyboard interrupt.."
-
-	def stop(self):
-		self.server.close()
+0ĞçbFŒÀ¼êsY#K`ÄŒ‘ °ÂÅÇY+\4»,#0bFŒÀŠ3Ğç²VÔês#P`ÅhqY#F`Ä¬8®ë¾@[ªÀH#P`
+Ì«v–*0RVhgÑ#Z`Åèdù#_`äŒ|yÕÄ¯šXÒÀ
+­+i`„Œ2°¢VÿJ˜Wÿ%Œ¤‘40’FÈÀÈù+ëz.i`$Ì«&70âFÒÀHI+«“Å¬0ĞÎ2FæÀÈ™#s`dŒ¸7°â\ÏŒà‘902FÜÀˆq+òJ®äFîä !%C„‹‹ºà<°r&¬4ûU³‹ #}`¤Œô¹jq#‚`E­>—C0rFÁHÁ#x`®ûª±E¬¨ÕÎWí,‚`DŒ‚‡ÔÓræêŸ	„Œ0‚F0ÂFÁÈ!XQë:}ÕİWïô%¬0ĞİWİ}u±–M0²	ÆÎûP0
+F@ÁÈ&±#‘`$¬8†N¶é~$ŒD‚‘H0ÂFÁ#Xq,‘`¬»±#–`ÄŒu÷#›`dŒX‚±î~Åq½—R0vŞM÷#¯`DŒu÷#¯`®úWhÁ-XQ«‰¯šøª‰¯ZW|ÁH.ÉsÕºWf+§ÿë'"ÙÿKşKşKş&ççŸ<ıÅ7şûüô—ßıöKzyú§yÌûOOÿÏïß|ø?ŸŸ~ú!_ğÇËÓß=¾ùÖŸ^Ÿ~Õ/¾üÃãÛ‡ÿ»>ıêñ»¯şåğçÛÓû¦_¼ùşñùúñ?ßÿÿxúÙñÛw£<ıü_¾ûx¨>ııw_~ó»ïæéÇå§ø½ÿ¾=ırËşeÿøò“§ü_ß){y~úÕï>üOf//O¿şÃãëy

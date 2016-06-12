@@ -15,7 +15,7 @@ from SimpleHTTPServer import SimpleHTTPRequestHandler
 from scorebot.common.communication.BotMessage import BotMessage
 
 VALID_FILE_REGEX = re.compile("^(/)?\w+\.(html|css|jpg)$")
-FILE_PATH = "/"
+FILE_PATH = "/var/www/html/ctf-scorebot-master/scorebot/standard/scoreboardbot/"
 SCORE_TABLE_TEXT = ""
 
 def buildRootPath(path):
@@ -35,6 +35,10 @@ class ScoreboardHttpHandler(SimpleHTTPRequestHandler):
 
 		else:
 			if o.path == "/index.html":
+				self.send_response(200)
+				self.send_header("Content-Type", "text/html")
+				self.end_headers()
+
 				self.do_index()
 			else:
 				self.path = buildRootPath(self.path)
